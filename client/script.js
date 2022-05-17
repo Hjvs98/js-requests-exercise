@@ -2,6 +2,8 @@
 //THE TEST SERVER IS RUNNING ON LOCALHOST:3000//
 ////////////////////////////////////////////////
 
+const res = require("express/lib/response");
+
 // PROBLEM 1
 /*
     In the index.html file in this folder there is a button with an id of 'say-hello-button'!
@@ -70,12 +72,23 @@ sayHelloButton.addEventListener("click", sayHello);
 
 const ohMy = () => {
   return axios.get("http://localhost:3000/animals").then((res) => {
-    return res.data;
+    return console.log(res.data);
   });
 };
 
-document.getElementById("animals-button").addEventListener("click", ohMy);
-
+document.getElementById(`#animals-button`).addEventListener("click", ohMy);
+////////////////////Question 9//////////////////////
+// const ohMy1 = () => {
+//     return axios.get("http://localhost:3000/animals").then((res) => {
+//         for (i = 0; i < res.data.length; i++) {
+//             let newP = document.createElement("p")
+//             newP.textContent = res.data[i]
+//             let body = document.querySelector(`body`)
+//             body.appendChild()
+//         }
+//     });
+//   };
+//   document.getElementById("animals-button").addEventListener("click", ohMy1);
 // PROBLEM 6
 /*
     Now lets see if you can send a request param! inside repeatMyParam function below  make get request to 'http://localhost:3000/repeat/{SOMEPARAM}', but with a string instead of {SOMEPARAM}.  
